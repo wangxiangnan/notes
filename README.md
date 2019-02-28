@@ -1,3 +1,3 @@
-# 生命不息 奋斗不止！
+### 生命不息 奋斗不止！
 
-[ ](http://img.qikula.com/file/image/pic/5a1086151275n1606937294c27.jpg)
+[生命不止，奋斗不息](/images/jiayou.jpg)
