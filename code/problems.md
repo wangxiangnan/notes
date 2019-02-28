@@ -45,7 +45,7 @@
 
     官方参考文档：https://github.com/muwoo/vnode2canvas/blob/master/examples/mpvue/README.md
     [官方参考文档](https://github.com/muwoo/vnode2canvas/blob/master/examples/mpvue/README.md)
-    [简书](http://jianshu.com)
+    [简书](http:\/\/jianshu.com)
     分析：
       1. 新建一个mpvue项目，同时使用vuex和store是否还出现类似问题
       答： 还是出现这个问题，渲染
