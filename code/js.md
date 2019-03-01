@@ -46,11 +46,49 @@
   [官方参考文档](https://github.com/muwoo/vnode2canvas/blob/master/examples/mpvue/README.md)  
   分析： 
     1. 新建一个mpvue项目，同时使用vuex和store是否还出现类似问题  
-    答： 还是出现这个问题，渲染
+    答： 还是出现这个问题
+    具体问题是： store的action和mutation都可以触发，state也可以改变，但是多个页面有可能不能及时更新视图
 
 
 #### 每一个请求没有登录都会跳入登录页，如果请求很多就会跳入多次，如何阻止？
 
+    1. 首先所有发起的action都是从minxin公共方法中发起以及跳入登录页，和状态显示 
+    2. 设置全局变量isLogging 
+    3. 当isLogging是false时将其设为true，并跳入登录页。 
+    4. 跳出登录页将其设为false
 
 #### 每个页面都要导航栏，mpvue在minxin中导入，不能渲染出来
 
+
+
+#### 深入理解js是单线程的，也就是两个事件不可能同时触发，必定是一个一个执行
+
+    !isLogging? that.$router.push("/pages/login/main"): console.log('已阻止重复跳入登录页!');
+    !isLogging && (isLogging = true); // 未正在登录才会改为正在登录
+    这个实现才成为可能
+
+#### LF和CRLF的区别
+
+    CRLF： "\r\n", windows系统的换行的方式。
+    LF："\n", linux系统的换行的方式
+
+    在你使用git拉取代码的时候，git会自动将代码当中与你当前系统不同的换行方式转化成你当前系统的换行方式，从而造成这种冲突。 
+    1. 修改git全局配置，禁止git自动将lf转换成crlf,  命令： 
+    git config --global core.autocrlf false
+
+    2. 修改编辑器的用户配置，例如vscode 
+    "files.eol": "\n", // 文件换行使用lf方式
+
+#### 添加worker代码文件， 微信多线程实例：canvas
+    初始化：
+      1. 创建worker线程
+      2.初始化
+
+
+
+#### 研究一下方法
+    function fib(n) {
+      if (n < 1) return 0
+      if (n <= 2) return 1
+      return fib(n - 1) + fib(n - 2)
+    }
