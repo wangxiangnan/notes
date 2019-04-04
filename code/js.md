@@ -62,13 +62,13 @@
 
 
 #### 深入理解js是单线程的，也就是两个事件不可能同时触发，必定是一个一个执行
-
-    !isLogging? that.$router.push("/pages/login/main"): console.log('已阻止重复跳入登录页!');
-    !isLogging && (isLogging = true); // 未正在登录才会改为正在登录
-    这个实现才成为可能
-
+```
+  !isLogging? that.$router.push("/pages/login/main"): console.log('已阻止重复跳入登录页!');
+  !isLogging && (isLogging = true); // 未正在登录才会改为正在登录
+  这个实现才成为可能
+```
 #### LF和CRLF的区别
-
+```
   CRLF： "\r\n", windows系统的换行的方式。
   LF："\n", linux系统的换行的方式
 
@@ -78,12 +78,13 @@
 
   2. 修改编辑器的用户配置，例如vscode 
   "files.eol": "\n", // 文件换行使用lf方式 
-
+```
 #### 添加worker代码文件， 微信多线程实例：canvas
+```
   初始化：
     1. 创建worker线程
     2.初始化
-
+```
 
 #### 研究一下方法
   ``` javascript
@@ -95,24 +96,24 @@
   ```
 
 #### vue-cli 放在服务器子文件夹下
-
+```
   vue项目放置服务器子文件夹，改三处，config/index, build/utils, vueRouter
-
+```
 #### vue mode = history && hash的优缺点
-
+```
   history: 路径和正常一样，看着好看，但是后台服务器必须支持，如返回404时，返回设定的index文件
 
   hash： 不好看， 但只需服务器支持一次，刷新无影响
-
+```
 #### JS小数运算不对
-
+```
   例如： 5 - 3.2 = 1.7999999999999998
         1.6 * 3 = 4.800000000000001
   产生原因： java和javascript中计算小数运算时，都会将十进制的小数换算为对应的二进制，一部分小数并不能完整的换算为二进制，这里就出现了第一次误差。
   解决方法： js之间的整数运算都是正常的，所以先换算为整数，之后再换算为小数
-
+```
 #### 乘性操作符的不同之处
-
+```
   1. NaN和任意数据运算都会返回NaN。
   2. Infinity * 0 = NaN.
   3. Infinity / Infinity = NaN.
@@ -121,7 +122,7 @@
   6. anyNumber / 0 = Infinity.
 
   主要注意，0为除数时的情况。
-
+```
 #### 阿姨简历构思
 
   问题：
@@ -185,7 +186,7 @@
 ```
 #### js对象生命周期函数理解
 ```
- > 1. 自定义canvas对象，完成渲染，输出图片临时路径
+ 1. 自定义canvas对象，完成渲染，输出图片临时路径
 ```
 
 #### 使用google查找内存泄露，内存膨胀， 频繁的垃圾回收机制
