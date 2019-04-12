@@ -15,3 +15,5 @@
 #### css样式总结
 
       1. 在使用white-space: nowrap时，父级一定要加上overflow: hidden;要不有可能横向滑动
+      2. input , select 文字会自动居中
+      3. 查看一个元素的盒模型，要由外向里去看，寻找规律，再去定是使用line-height，padding， margin，or border，只有这样才能搭建一个良好的页面结构

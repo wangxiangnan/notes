@@ -191,4 +191,11 @@
 
 #### 使用google查找内存泄露，内存膨胀， 频繁的垃圾回收机制
 
-  [跳转到谷歌开发者文档](https://developers.google.com/web/tools/chrome-devtools/memory-problems/?hl=zh-cn)
+    [跳转到谷歌开发者文档](https://developers.google.com/web/tools/chrome-devtools/memory-problems/?hl=zh-cn)
+
+#### 关于html-webpack-plugin, inject只能插入body底端的问题
+
+  ##### 目前有一个需求，就是第三方脚本，不能异步插入到dom中，必须本身包含在dom中。如果本身包含第三方脚本，而我的业务又插入到第三方后面，会影响正常的页面渲染！
+    解决方法： 
+      1. 模板本身包含html结构
+      2. 能不能引入外部模板，使用hbs进行集成
