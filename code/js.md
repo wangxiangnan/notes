@@ -150,6 +150,9 @@
   3. eventBus是组件间进行解耦通信的工具
   4. 从模块机制，理解映射的含义(mapping: one to one)
   5. 数据分为服务器数据和本地数据，两者结合才能发挥最佳的体验。
+  6. 除了object对象为什么其它引用类型要调用Object.prototype.toString,因为其他引用类型重写了toString和valueOf等方法
+  7. vue项目放置服务器子文件夹，改三处，config/index, build/utils, vueRouter
+  8. 今天使用本地图片进行canvas画图，手机画不出来，原因是由于url-loader设置了limit限制，小于这个图片大小的改为base64；
 ```
 
 
@@ -199,3 +202,39 @@
     解决方法： 
       1. 模板本身包含html结构
       2. 能不能引入外部模板，使用hbs进行集成
+
+#### 深入理解Object访问器属性
+
+    1. 可以对属性的获取和设置进行监听，和设置
+    2. Vue是使用访问器属性进行监听数据改变，同步更新视图层的
+    3. 小程序是使用setData进行更新的，setData的优点是可以一次更改多个数据，减少频繁更新视图，影响性能。（问： vue是否有类似方法一次更新多个属性）
+    4. 这样就可以不用使用接口，直接对数据源进行监听。
+
+
+#### Console命令，让js调试更简单
+``` javascript
+// 一、显示信息的方法
+
+1. console.log('normal') // 用于输出普通信息
+2. console.info('information') // 用于输出提示性信息
+3. console.warn('warn') // 警告信息 
+3. console.error('error') // 错误信息 
+
+// 二、点位符(这个有深入感受，以前都没有使用过点位符，导致输出变量很麻烦，必须进行字符串拼接，然而如果使用上了点位符就可以写上高大上的生活了)
+// %s(String), %d or %i (Number), %f(Float) %o(Object)
+// 提示： 如果使用%d or %i 去打印浮点数，会进行取整; 如果使用%f可以打印整数
+```
+[原文链接](https://www.cnblogs.com/alantao/p/5859358.html)
+
+
+#### 去掉字符串中的北京 or 太原、广州和店？
+
+``` javascript
+  var reg = /北京|上海|广州|店/g;
+  var str = '北京凯旋城店';  // =>  凯旋城
+  str.replace(reg, '');
+```
+
+#### 如何在现有项目中，应用面向对象编程和对象的访问器属性？
+
+
